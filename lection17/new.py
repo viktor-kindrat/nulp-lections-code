@@ -39,3 +39,20 @@ class Robot:  # "Composing"
 
     def action(self):
         self.arm.weld()
+
+
+class Singletone:
+    _instanse = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instanse is None:
+            print("created successfully")
+            cls._instanse = super().__new__(cls)
+        else:
+            print("already exist")
+        return cls._instanse
+
+ins = Singletone()
+
+ins_2 = Singletone()
+ins_3 = Singletone()
